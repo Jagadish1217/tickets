@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-up</title>
+    <style>
+        #main {
+            max-width: 180px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav id="head">
+        <button onclick="(location.href='sign_up.html')">Sign Up</button>
+        <button onclick="(location.href='log_in.html')">Log In</button>
+        <button onclick="(location.href='indexes.html')">tickets</button>
+    </nav>
+    <div id="main">
+        <form id="form">
+            <label for="name">what is your name?</label><input type="text" id="name" placeholder="Enter the name" />
+            <label for="email">what is your email id?</label><input type="text" id="email" placeholder="Enter your email id" />
+            <label for="num">what is your mobile number?</label><input type="num" id="num" placeholder="Enter mob num" />
+            <label for="password">what is your password?</label><input type="text" id="pass" placeholder="create a password" />
+            <input type="checkbox" id="check" /><label for="check">I agree to the terms and conditions</label>
+        </form>
+        <button id="sign" onclick="sign()">Sign-Up</button>
+    </div>
+</body>
+</html>
+<script src="signin.js"></script>

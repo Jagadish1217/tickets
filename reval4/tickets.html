@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav id="head">
+        <button onclick="(location.href='sign_up.html')">Sign Up</button>
+        <button onclick="(location.href='log_in.html')">Log In</button>
+        <button onclick="(location.href='indexes.html')">Menu</button>
+    </nav>
+    <div id="main">
+        <form id="form">
+            <label for="name"> movie name</label><input type="text" id="name" placeholder="Enter the name" />
+            <label for="price"> price</label><input type="number" id="price"
+                placeholder="Enter price" />
+            <label for="time">movie time</label><input type="time" id="time" placeholder="Enter movie time" />
+            <label for="description">description</label><input type="text" id="desc"
+                placeholder="description" />
+        </form>
+        <button id="movies" onclick="tickets()">BUY</button>
+</body>
+</html>
+<script>
+    function tickets() {
+    let form = document.getElementById("form");
+        let name = form.name.value;
+        let price = form.price.value;
+        let time = form.time.value;
+        let desc = form.desc.value;
+
+        let ticket = {
+                name,
+                price,
+                time,
+                desc,
+            };
+            let arr = JSON.parse(localStorage.getItem("ticketss"));
+            if (arr == null) {
+                arr = [];
+                arr.push(ticket);
+            } else {
+                arr = JSON.parse(localStorage.getItem("ticketss"))
+                var k = 0;
+                for (var i = 0; i < arr.length; i++) {
+                    var c = 0;
+                    for (key in ticket) {
+                        if (arr[i][key] == ticket[key]) {
+                            c++;
+                            break;
+                        }
+                    }
+                    if (c > 0) {
+                        k++;
+                        break;
+                    }
+                }
+                if (k > 0) {
+                    alert("account already exists");
+                    return;
+                }
+                else {
+                    arr.push(ticket);
+                    window.location.href = "indexes.html"
+                }
+            }
+            localStorage.setItem("ticketss", JSON.stringify(arr))
+        }
+        
+</script>

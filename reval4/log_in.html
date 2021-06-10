@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #logform {
+            max-width: 180px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav id="head">
+        <button onclick="(location.href='sign_up.html')">Sign Up</button>
+        <button onclick="(location.href='log_in.html')">Log In</button>
+        <button onclick="(location.href='indexes.html')">tickets</button>
+    </nav>
+    <form id="logform">
+        <label for="name">use your name or email Id</label><input type="text" id="name"
+            placeholder="Enter your name or email Id" />
+        <label for="pass">use your name or email Id</label><input type="text" id="pass"
+            placeholder="Enter your password" />
+    </form>
+    <button id="log" onclick="log()">Log-In</button>
+</body>
+</html>
+<script src="signin.js"></script>

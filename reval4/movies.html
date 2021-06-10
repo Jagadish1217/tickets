@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav id="head">
+        <button onclick="(location.href='sign_up.html')">Sign Up</button>
+        <button onclick="(location.href='log_in.html')">Log In</button>
+        <button onclick="(location.href='indexes.html')">Menu</button>
+    </nav>
+    <button id="submit" onclick="submit()">submit</button>
+    <div id="parent"></div>
+    <h3 id="dis"></h3>
+    <h5 id="pri"></h5>
+
+</body>
+</html>
+<script>
+    let sum = 0;
+        function show(f) {
+            f = String(f);
+            let arr = JSON.parse(localStorage.getItem(f));
+            let parent = document.getElementById("parent");
+            arr.forEach(function (x) {
+                let div = document.createElement("div");
+                let img = document.createElement("img");
+                img.src = x.img;
+                let price = document.createElement("h3");
+                price.innerHTML = `Price : ₹${x.price}`;
+                let name = document.createElement("h3");
+                name.innerHTML = `Name : ${x.name}`;
+                let time = document.createElement("h4");
+                time.innerHTML = `Time to Prepare : ${x.time} Hours`;
+                sum += Number(x.price);
+                div.append(img, name, price, time);
+                parent.append(div);
+            });
+        }
+        show("ticketsmore");
+        let len = JSON.parse(localStorage.getItem("ticketsmore")).length;
+        let dis = document.getElementById("dis");
+        dis.innerHTML = `Total items in cart is ${len}`;
+        let pri = document.getElementById("pri");
+        pri.innerHTML = `Total Cost of the cart is ₹${sum}`;
+        
+    function submit() {
+        let arr = [
+            "your booking is in progress",
+            "your payment has been recieved",
+            "preparing your ticket",
+            "booking successful",
+        ];
+        setTimeout(function() {
+            alert(arr[0]);
+        }, 000);
+        setTimeout(function() {
+            alert(arr[1]);
+        }, 3000);
+        setTimeout(function() {
+            alert(arr[2]);
+        }, 8000);
+        setTimeout(function() {
+            alert(arr[3]);
+        }, 10000);
+    }
+</script>
